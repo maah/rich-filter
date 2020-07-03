@@ -1,0 +1,23 @@
+{
+  "name": "rich-filter",
+  "version": "1.0.0",
+  "description": "A very fast and versatile word filter, using both a blacklist and a whitelist.",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc -p ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Maah/rich-filter.git"
+  },
+  "keywords": [],
+  "author": "Maah",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Maah/rich-filter/issues"
+  },
+  "homepage": "https://github.com/Maah/rich-filter#readme",
+  "devDependencies": {
+    "@types/node": "^14.0.14"
+  }
+}
