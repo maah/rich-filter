@@ -1,6 +1,6 @@
 {
   "name": "rich-filter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A very fast and versatile word filter, using both a blacklist and a whitelist.",
   "main": "lib/index.js",
   "scripts": {

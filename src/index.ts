@@ -21,6 +21,11 @@ export class Filter {
      */
     addWord(word: string, wordsToWhitelist?: string | string[]): Filter {
         word = word.toLowerCase();
+        // Avoid casing issues
+        if (wordsToWhitelist)
+            wordsToWhitelist = typeof wordsToWhitelist === 'string'
+                ? wordsToWhitelist.toLowerCase()
+                : wordsToWhitelist.map(v => v.toLowerCase());
         if (this.blacklist.indexOf(word) == -1) {
             this.blacklist.push(word);
             if (!wordsToWhitelist) this.whitelist.push('');
@@ -44,6 +49,11 @@ export class Filter {
      */
     editWord(word: string, wordsToWhitelist: string | string[]): Filter {
         word = word.toLowerCase();
+        // Avoid casing issues
+        if (wordsToWhitelist)
+            wordsToWhitelist = typeof wordsToWhitelist === 'string'
+                ? wordsToWhitelist.toLowerCase()
+                : wordsToWhitelist.map(v => v.toLowerCase());
         if (this.blacklist.indexOf(word) != -1) {
             const index = this.blacklist.indexOf(word);
             if (typeof wordsToWhitelist === 'string') this.whitelist[index] = wordsToWhitelist;
