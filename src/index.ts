@@ -108,8 +108,8 @@ export class Filter {
         if (lists.blacklist.length != lists.whitelist.length)
             throw new Error("The given word blacklist and whitelist cannot be different sizes. ("
                 + lists.blacklist.length + " and " + lists.whitelist.length + ")");
-        this.blacklist = lists.blacklist;
-        this.whitelist = lists.whitelist;
+        this.blacklist = lists.blacklist.map(v => v.toLowerCase());
+        this.whitelist = lists.whitelist.map(v => v.toLowerCase());
         return this;
     }
 
