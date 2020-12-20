@@ -157,7 +157,7 @@ export class Filter {
             const blackWord = this.blacklist[i];
 
             if (message.indexOf(blackWord) > -1) {
-                const countBlack = (message.match(new RegExp(blackWord.replace("*", "\*"), "g")) || []).length;
+                const countBlack = (message.match(new RegExp(blackWord.replace(/\*/g, "\\*"), "g")) || []).length;
                 let countWhite = 0;
 
                 this.whitelist[i].split(",").forEach(wword => {
@@ -205,7 +205,7 @@ export class Filter {
                     // Find next word + remove it from sub
                     sub = flag ? sub.substr(0, index) + " ".repeat(blackWord.length)
                         + sub.substr(index + blackWord.length) : message;
-                    const black = sub.match(new RegExp(blackWord.replace("*", "\*")));
+                    const black = sub.match(new RegExp(blackWord.replace(/\*/g, "\\*")));
 
                     flag = true;
 
@@ -320,7 +320,7 @@ export class Filter {
                     // Find next word + remove it from sub
                     sub = flag ? sub.substr(0, index) + " ".repeat(blackWord.length)
                         + sub.substr(index + blackWord.length) : message;
-                    const black = sub.match(new RegExp("\\b" + blackWord.replace("*", "\*") + "\\b"));
+                    const black = sub.match(new RegExp("\\b" + blackWord.replace(/\*/g, "\\*") + "\\b"));
 
                     flag = true;
 
